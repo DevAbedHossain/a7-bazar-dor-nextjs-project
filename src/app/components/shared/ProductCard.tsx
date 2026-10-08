@@ -5,7 +5,7 @@ import Link from 'next/link';
 const ProductCard = ({ product }: { product: IAllProducts }) => {
     return (
         <div>
-            <Link key={product.id} href="">
+            <Link key={product.id} href={`/product/${product.slug}`}>
                 <div className="bg-white rounded-2xl space-y-4 border border-gray-200 hover:border-[#05893e] hover:shadow p-4">
                     <div className="flex gap-3 items-center">
                         <span className="p-2 bg-[#f0f5f0] rounded-2xl text-3xl">{product.image}</span>

@@ -13,7 +13,7 @@ const MarqueeProducts = async () => {
             <Marquee className="flex gap-5" speed={150} pauseOnHover={true}>
                 {
                     products.map((product: IAllProducts) =>
-                        <Link key={product.id} href="">
+                        <Link key={product.id} href={`/product/${product.id}`}>
                             <div className="flex gap-1.5 hover:underline text-sm px-2">
                                 <span>{product.image}</span>
                                 <span className="font-medium">{product.nameBn}</span>

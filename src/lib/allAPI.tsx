@@ -15,3 +15,11 @@ export const allProducts = async (): Promise<IAllProducts[]> => {
     }
     return res.json();
 }
+
+export const singleCategory = async ({ slug }: { slug: string }) => {
+    const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/categories/${slug}`);
+    if (!res.ok) {
+        throw new Error("Failed to fetch Category")
+    };
+    return res.json();
+}
