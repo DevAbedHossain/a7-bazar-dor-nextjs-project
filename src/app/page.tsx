@@ -1,7 +1,10 @@
-import Image from "next/image";
+import HeroSection from "./components/homePage/HeroSection";
+
 
 export default function Home() {
   return (
-    <h2>Home Page</h2>
+    <div className="py-10">
+      <HeroSection />
+    </div>
   );
 }

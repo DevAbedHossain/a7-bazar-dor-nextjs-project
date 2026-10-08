@@ -15,7 +15,7 @@ const Navbar = async () => {
             <div className="container mx-auto flex justify-between items-center">
                 {/* Left Item */}
                 <div className="flex gap-3 items-center">
-                    <div className="bg-green-500 rounded p-2 my-3"><Image src={Logo} width={50} height={50} alt="বাজার দর" className="w-7.5 object-contain" /></div>
+                    <div className="bg-[#05893e] rounded p-2 my-3"><Image src={Logo} width={50} height={50} alt="বাজার দর" className="w-7.5 object-contain" /></div>
                     <div className="">
                         <p className="text-[#1D271F] text-xl font-bold">বাজার দর</p>
                         <p className="text-[12px]">{date}</p>
