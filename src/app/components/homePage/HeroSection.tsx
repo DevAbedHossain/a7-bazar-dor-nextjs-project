@@ -9,7 +9,7 @@ const HeroSection = () => {
     })
 
     return (
-        <div className="grid grid-cols-3 gap-5 bg-white rounded-2xl p-10 items-center">
+        <div className="grid grid-cols-3 gap-5 bg-white border border-gray-200 rounded-2xl p-10 items-center">
             <div className="col-span-2">
                 <span className="bg-[#e2f1e7] text-[#05893E] text-sm font-semibold rounded-full py-2 px-5">{date}</span>
                 <h1 className="text-[#1D271F] font-bold text-4xl py-4">আজকের বাজারের দাম এক নজরে</h1>

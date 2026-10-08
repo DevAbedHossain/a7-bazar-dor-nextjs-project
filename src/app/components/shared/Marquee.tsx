@@ -9,7 +9,7 @@ const MarqueeProducts = async () => {
     const products = await allProducts();
 
     return (
-        <div className="py-1.5 border-y border-gray-200">
+        <div className="py-2.5 border-y border-gray-200">
             <Marquee className="flex gap-5" speed={150} pauseOnHover={true}>
                 {
                     products.map((product: IAllProducts) =>
