@@ -12,7 +12,10 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
 
     const product = products.find((product: IAllProducts) => product.slug === productId);
 
-    console.log(product)
+    const totalMinPrice = product?.markets.reduce((acc: number, current: number) => acc + current.min, 0) / product?.markets.length;
+    const totalMaxPrice = product?.markets.reduce((acc: number, current: number) => acc + current.max, 0) / product?.markets.length;
+    const ave = ((totalMaxPrice + totalMinPrice) / 2).toFixed(2);
+
 
     return (
         <div className="py-7">
@@ -43,29 +46,49 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
 
             <div className="bg-white p-7 border rounded-2xl border-gray-200 my-7">
                 <h2 className="text[#1D271F] text-xl font-semibold">দামের সারসংক্ষেপ</h2>
+
+                <div className="grid grid-cols-3 gap-5 items-center my-7">
+                    <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
+                        <p className="text-sm">সর্বনিম্ন দাম</p>
+                        <p className="text-[#1A9951]"><span className="text-2xl font-bold">{product?.markets.length ? Math.min(...product.markets.map((market: IAllProducts["markets"]) => market.min)) : 0}</span> টাকা</p>
+                        <p className="text-sm">সবচেয়ে কম দামের বাজার</p>
+                    </div>
+                    <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
+                        <p className="text-sm">সর্বাধিক দাম</p>
+                        <p className="text-red-500"><span className="text-2xl font-bold">{product?.markets.length ? Math.max(...product.markets.map((market: IAllProducts["markets"]) => market.max)) : 0}</span> টাকা</p>
+                        <p className="text-sm">সবচেয়ে বেশি দামের বাজার</p>
+                    </div>
+                    <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
+                        <p className="text-sm">গড় দাম</p>
+                        <p className="text-[#1A9951]"><span className="text-2xl font-bold">{ave}</span> টাকা</p>
+                        <p className="text-sm">প্রতি {product?.unit}-এর হিসাবে</p>
+                    </div>
+                </div>
+
                 <h2 className="text[#1D271F] text-xl font-semibold">বাজারভিত্তিক আজকের দাম</h2>
+
                 <div>
-                    <div className="overflow-x-auto">
-                        <table className="table table-zebra">
+                    <div className="overflow-x-auto py-5">
+                        <table className="table table-zebra border border-gray-200 rounded-2xl text-[16px]">
                             {/* head */}
                             <thead>
-                                <tr>
+                                <tr >
                                     <th>বাজার</th>
                                     <th>বিভাগ</th>
-                                    <th>সর্বনিম্ন</th>
-                                    <th>সর্বাধিক</th>
-                                    <th>গড়</th>
+                                    <th className="text-right">সর্বনিম্ন</th>
+                                    <th className="text-right">সর্বাধিক</th>
+                                    <th className="text-right">গড়</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {/* row 1 */}
                                 {
                                     product?.markets.map((item: IAllProducts["markets"], ind: number) => <tr key={ind}>
-                                        <th>{item.market}</th>
+                                        <td>{item.market}</td>
                                         <td>{item.division}</td>
-                                        <td>{item.min} টাকা</td>
-                                        <td>{item.max} টাকা</td>
-                                        <td className="font-semibold">{(item.min + item.max) / 2} টাকা</td>
+                                        <td className="text-right">{item.min} টাকা</td>
+                                        <td className="text-right">{item.max} টাকা</td>
+                                        <td className="font-semibold text-right">{(item.min + item.max) / 2} টাকা</td>
                                     </tr>)
                                 }
 
