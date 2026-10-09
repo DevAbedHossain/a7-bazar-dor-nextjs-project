@@ -33,11 +33,11 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
 
             <p className="pt-2 pb-5 text-sm flex gap-3"><Link className="hover:underline" href="/">হোম</Link> ❯ <Link className="hover:underline" href={`/category/${product?.category}`}>{product?.categoryNameBn}</Link> ❯ <span>{product?.nameBn}</span></p>
 
-            <div className="flex justify-between items-center bg-white p-7 border rounded-2xl border-gray-200">
+            <div className="flex justify-between items-center flex-col md:flex-row bg-white p-7 border rounded-2xl border-gray-200">
                 <div className="flex gap-3 items-center">
                     <span className="text-6xl p-5 rounded-2xl bg-[#f0f5f0]">{product?.image}</span>
                     <div className="space-y-1 ">
-                        <h2 className="text-3xl text-[#1D271F] font-bold">{product?.nameBn}</h2>
+                        <h2 className="text-xl md:text-3xl text-[#1D271F] font-bold">{product?.nameBn}</h2>
                         <p className="text-[#1d271fa1] text-sm">প্রতি {translateUnit(`${product?.unit}`)} · {product?.categoryNameBn}</p>
                         <p className="text-[#1d271fa1] text-sm">গতকালের তুলনায় আজ দাম
                             {product?.change.dir === "up" && <span><span className="font-semibold"> বেড়েছে</span> · {toBanglaNumber(`${(Number(product?.today ?? 0)) - (Number(product?.yesterday ?? 0))}`)} টাকা</span>}

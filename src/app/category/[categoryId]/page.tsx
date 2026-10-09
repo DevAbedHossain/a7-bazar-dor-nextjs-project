@@ -21,7 +21,7 @@ const SingleCategoryPage = async ({ params }: { params: Promise<{ categoryId: st
 
 
     return (
-        <div className="py-7">
+        <div className="py-7 px-5 sm:px-0">
             <div className="bg-white p-7 rounded-2xl border border-gray-200 flex gap-2 items-center">
                 <span className="text-4xl">{category.icon}</span>
                 <div className="space-y-1">

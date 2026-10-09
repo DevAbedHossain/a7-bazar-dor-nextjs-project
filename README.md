@@ -10,7 +10,6 @@ The application is built with Next.js, TypeScript, Tailwind CSS, DaisyUI, and Be
 ## 🌐 Live Demo
 
 - **Live Website:** https://a7-bazar-dor-nextjs-project.vercel.app/
-- **GitHub Repository:** [Add your GitHub repository URL here]
 
 ## ✨ Key Features
 

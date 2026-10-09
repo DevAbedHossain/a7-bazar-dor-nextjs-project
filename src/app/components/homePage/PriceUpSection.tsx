@@ -10,9 +10,9 @@ const PriceUpSection = async () => {
     console.log(priceUpProducts, "products price up")
 
     return (
-        <div className="py-10">
+        <div className="py-10 px-5 sm:px-0">
             <h2 className="text-xl text-[#1D271F] font-bold"><span className="text-red-500 pr-2">▲</span>আজ দাম বেড়েছে</h2>
-            <div className="grid grid-cols-4 gap-4 py-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-5 ">
                 {
                     priceUpProducts.slice(0, 8).map((product: IAllProducts) => <ProductCard key={product.id} product={product} />)
                 }

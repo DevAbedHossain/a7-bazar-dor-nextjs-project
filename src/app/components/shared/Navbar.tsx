@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <div className="sticky top-0 bg-white z-50">
-            <div className="container mx-auto flex justify-between items-center">
+            <div className="container mx-auto flex justify-between px-3 sm:px-0 items-center">
                 {/* Left Item */}
                 <Link href="/">
                     <div className="flex gap-3 items-center">
