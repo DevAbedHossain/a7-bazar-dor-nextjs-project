@@ -1,3 +1,4 @@
+import { translateUnit } from '@/lib/TranslateUnit';
 import { IAllProducts } from '@/types/allTypes';
 import Link from 'next/link';
 
@@ -16,7 +17,7 @@ const ProductCard = ({ product }: { product: IAllProducts }) => {
                         <span className="p-2 bg-[#f0f5f0] rounded-2xl text-3xl">{product.image}</span>
                         <div>
                             <h3 className="text-[16px] font-semibold text-[#1D271F]">{product.nameBn}</h3>
-                            <span>প্রতি {product.unit}</span>
+                            <span>প্রতি {translateUnit(`${product.unit}`)}</span>
                         </div>
                     </div>
                     <div>

@@ -1,4 +1,5 @@
 import { allProducts } from "@/lib/allAPI";
+import { translateUnit } from "@/lib/TranslateUnit";
 import { IAllProducts } from "@/types/allTypes";
 import Link from "next/link";
 
@@ -32,7 +33,7 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
                     <span className="text-6xl p-5 rounded-2xl bg-[#f0f5f0]">{product?.image}</span>
                     <div className="space-y-1 ">
                         <h2 className="text-3xl text-[#1D271F] font-bold">{product?.nameBn}</h2>
-                        <p className="text-[#1d271fa1] text-sm">প্রতি {product?.unit} · {product?.categoryNameBn}</p>
+                        <p className="text-[#1d271fa1] text-sm">প্রতি {translateUnit(`${product?.unit}`)} · {product?.categoryNameBn}</p>
                         <p className="text-[#1d271fa1] text-sm">গতকালের তুলনায় আজ দাম
                             {product?.change.dir === "up" && <span><span className="font-semibold"> বেড়েছে</span> · {toBanglaNumber(`${(Number(product?.today ?? 0)) - (Number(product?.yesterday ?? 0))}`)} টাকা</span>}
                             {product?.change.dir === "down" && <span> <span className="font-semibold"> কমেছে</span> · {toBanglaNumber(`${(Number(product?.yesterday ?? 0)) - (Number(product?.today ?? 0))}`)} টাকা</span>}
@@ -69,7 +70,7 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
                     <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
                         <p className="text-sm">গড় দাম</p>
                         <p className="text-[#1A9951]"><span className="text-2xl font-bold">{bngAve}</span> টাকা</p>
-                        <p className="text-sm">প্রতি {product?.unit}-এর হিসাবে</p>
+                        <p className="text-sm">প্রতি {translateUnit(`${product?.unit}`)}-এর হিসাবে</p>
                     </div>
                 </div>
 

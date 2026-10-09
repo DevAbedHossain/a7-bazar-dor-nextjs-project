@@ -1,4 +1,5 @@
 import { allProducts } from '@/lib/allAPI';
+import { translateUnit } from '@/lib/TranslateUnit';
 import { IAllProducts } from '@/types/allTypes';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
@@ -22,7 +23,7 @@ const MarqueeProducts = async () => {
                             <div className="flex gap-1.5 hover:underline text-sm px-2">
                                 <span>{product.image}</span>
                                 <span className="font-medium">{product.nameBn}</span>
-                                <span>{toBanglaNumber(`${product.today}`)}  টাকা/{product.unit}</span>
+                                <span>{toBanglaNumber(`${product.today}`)}  টাকা/{translateUnit(`${product.unit}`)}</span>
                                 <span className={`${product.change.dir === "up" ? "text-red-500" : "text-green-500"}`}>{`${product.change.dir === "up" ? "⮝" : "⮟"}`}</span>
                                 <span className={`${product.change.dir === "up" ? "text-red-500" : "text-green-500"}`}>{toBanglaNumber(`${product.change.pct}`)}%</span>
                             </div>

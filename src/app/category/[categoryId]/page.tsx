@@ -1,6 +1,7 @@
-import ProductCard from "@/app/components/shared/ProductCard";
+import ProductItems from "@/app/components/categoryPage/productItems";
 import { allProducts, singleCategory } from "@/lib/allAPI";
 import { IAllProducts, ICategoriesNav } from "@/types/allTypes";
+
 
 
 
@@ -18,6 +19,7 @@ const SingleCategoryPage = async ({ params }: { params: Promise<{ categoryId: st
         return Number(price).toLocaleString("bn-BD");
     }
 
+
     return (
         <div className="py-7">
             <div className="bg-white p-7 rounded-2xl border border-gray-200 flex gap-2 items-center">
@@ -28,22 +30,7 @@ const SingleCategoryPage = async ({ params }: { params: Promise<{ categoryId: st
                 </div>
             </div>
 
-            <div className="bg-white p-7 mt-7 rounded-2xl border border-gray-200 flex gap-2 justify-end focus:outline-0 focus:border-0 items-center">
-                <select defaultValue="Pick a color" className="select">
-                    <option disabled={true}>Pick a color</option>
-                    <option>Crimson</option>
-                    <option>Amber</option>
-                    <option>Velvet</option>
-                </select>
-            </div>
-
-            <h2 className="text-[16px] pt-8 text-[#1d271fa1]">মোট {toBanglaNumber(`${products.length}`)}টি পণ্য দেখানো হচ্ছে</h2>
-
-            <div className="grid grid-cols-4 gap-4 py-5">
-                {
-                    products.map((product: IAllProducts) => <ProductCard key={product.id} product={product} />)
-                }
-            </div>
+            <ProductItems products={products} />
         </div>
     );
 };
