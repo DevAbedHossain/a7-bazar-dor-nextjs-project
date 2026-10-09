@@ -3,9 +3,10 @@ import Logo from '@/assets/logo-icon.png';
 import Navitems from './Navitems';
 import Marquee from './Marquee';
 import Link from 'next/link';
+import UserInfo from './UserInfo';
 
 
-const Navbar = async () => {
+const Navbar = () => {
 
     const date = new Date().toLocaleDateString("bn-bd", {
         dateStyle: "full",
@@ -27,8 +28,7 @@ const Navbar = async () => {
 
                 {/* Right Item */}
                 <div className="flex gap-3">
-                    <Link href="/signin"><button className="rounded-lg text-[16px] font-medium bg-transparent btn border-transparent hover:border hover:bg-gray-200">সাইন ইন</button></Link>
-                    <Link href="/signup"><button className="btn bg-[#05893e] hover:bg-[#046d32] text-white rounded-lg text-[16px] font-medium">সাইন আপ</button></Link>
+                    <UserInfo />
                 </div>
             </div>
 
