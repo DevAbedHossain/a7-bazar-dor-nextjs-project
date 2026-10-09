@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
+  devIndicators: false,
   turbopack: {
     rules: {
       "*.css": {
