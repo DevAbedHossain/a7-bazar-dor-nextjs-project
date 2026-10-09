@@ -28,5 +28,5 @@ export interface IAllProducts {
         division: string
         min: number
         max: number
-    }
+    }[]
 }
