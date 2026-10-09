@@ -8,7 +8,7 @@ const AllProducts = async () => {
     const products = await allProducts();
 
     return (
-        <div className="">
+        <div id="allproduct" className="">
             <h2 className="text-xl text-[#1D271F] font-bold">সব পণ্য</h2>
             <p className="text-sm text-[#1D271F] py-3">মোট ৩৩টি পণ্য দেখানো হচ্ছে</p>
             <div className="grid grid-cols-4 gap-4 py-5">

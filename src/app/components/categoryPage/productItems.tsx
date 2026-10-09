@@ -39,7 +39,7 @@ const productItems = ({ products }: { products: IAllProducts[] }) => {
         <div>
             <div className="bg-white p-7 mt-7 rounded-2xl border border-gray-200 flex gap-2 justify-end focus:outline-0 focus:border-0 items-center">
                 <h4>সাজান</h4>
-                <select onChange={(e) => setSortBy(e.target.value as "default" | "price.asc" | "price-dsc")} className="select">
+                <select onChange={(e) => setSortBy(e.target.value as "default" | "price.asc" | "price-dsc")} className="select focus:outline-0">
                     <option value={"default"}>ডিফল্ট</option>
                     <option value={"price.asc"}>দাম: কম থেকে বেশি</option>
                     <option value={"price-dsc"}>দাম: বেশি থেকে কম</option>

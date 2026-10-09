@@ -15,9 +15,14 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
     };
 
     const product = products.find((product: IAllProducts) => product.slug === productId);
+    const markets = Array.isArray(product?.markets)
+        ? product.markets
+        : product?.markets
+            ? [product.markets]
+            : [];
 
-    const totalMinPrice = product?.markets.reduce((acc: number, current: number) => acc + current.min, 0) / product?.markets.length;
-    const totalMaxPrice = product?.markets.reduce((acc: number, current: number) => acc + current.max, 0) / product?.markets.length;
+    const totalMinPrice = markets.reduce((acc, current) => acc + current.min, 0) / markets.length;
+    const totalMaxPrice = markets.reduce((acc, current) => acc + current.max, 0) / markets.length;
     const ave = ((totalMaxPrice + totalMinPrice) / 2).toFixed(2);
     const bngAve = toBanglaNumber(ave);
 
@@ -59,12 +64,12 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
                 <div className="grid grid-cols-3 gap-5 items-center my-7">
                     <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
                         <p className="text-sm">সর্বনিম্ন দাম</p>
-                        <p className="text-[#1A9951]"><span className="text-2xl font-bold">{toBanglaNumber(`${product?.markets.length ? Math.min(...product.markets.map((market: IAllProducts["markets"]) => market.min)) : 0}`)}</span> টাকা</p>
+                        <p className="text-[#1A9951]"><span className="text-2xl font-bold">{toBanglaNumber(`${markets.length ? Math.min(...markets.map((market) => market.min)) : 0}`)}</span> টাকা</p>
                         <p className="text-sm">সবচেয়ে কম দামের বাজার</p>
                     </div>
                     <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
                         <p className="text-sm">সর্বাধিক দাম</p>
-                        <p className="text-red-500"><span className="text-2xl font-bold">{toBanglaNumber(`${product?.markets.length ? Math.max(...product.markets.map((market: IAllProducts["markets"]) => market.max)) : 0}`)}</span> টাকা</p>
+                        <p className="text-red-500"><span className="text-2xl font-bold">{toBanglaNumber(`${markets.length ? Math.max(...markets.map((market) => market.max)) : 0}`)}</span> টাকা</p>
                         <p className="text-sm">সবচেয়ে বেশি দামের বাজার</p>
                     </div>
                     <div className="border border-gray-200 p-5 rounded-2xl space-y-1.5">
@@ -92,7 +97,7 @@ const SingleProductPage = async ({ params }: { params: Promise<{ productId: stri
                             <tbody>
                                 {/* row 1 */}
                                 {
-                                    product?.markets.map((item: IAllProducts["markets"], ind: number) => <tr key={ind}>
+                                    markets.map((item, ind) => <tr key={ind}>
                                         <td>{item.market}</td>
                                         <td>{item.division}</td>
                                         <td className="text-right">{toBanglaNumber(`${item.min}`)} টাকা</td>
