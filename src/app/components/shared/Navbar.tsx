@@ -13,7 +13,7 @@ const Navbar = () => {
     })
 
     return (
-        <div>
+        <div className="sticky top-0 bg-white z-50">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Left Item */}
                 <Link href="/">
