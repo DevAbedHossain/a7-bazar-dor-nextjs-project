@@ -3,6 +3,11 @@ import Link from 'next/link';
 
 
 const ProductCard = ({ product }: { product: IAllProducts }) => {
+
+    const toBanglaNumber = (price: number | string) => {
+        return Number(price).toLocaleString("bn-BD");
+    }
+
     return (
         <div>
             <Link key={product.id} href={`/product/${product.slug}`}>
@@ -17,10 +22,10 @@ const ProductCard = ({ product }: { product: IAllProducts }) => {
                     <div>
                         <h4 className="text-sm text-[#1D271F]">আজকের দাম</h4>
                         <div className="flex gap-5 justify-between items-center">
-                            <h3 className="text-[#1D271F] text-xl font-bold">{product.today} <span className="text-sm font-normal ">টাকা</span></h3>
+                            <h3 className="text-[#1D271F] text-xl font-bold">{toBanglaNumber(`${product.today}`)} <span className="text-sm font-normal ">টাকা</span></h3>
                             <div className="bg-[#F0F5F0] py-2 px-3 rounded-full flex gap-2">
                                 <span className={`${product.change.dir === "up" && "text-red-500" || product.change.dir === "down" && "text-green-500"}`}>{product.change.dir === "up" && "▲" || product.change.dir === "down" && "▼" || product.change.dir === "flat" && "━"}</span>
-                                <span>{product.change.pct}%</span>
+                                <span>{toBanglaNumber(`${product.change.pct}`)}%</span>
                             </div>
                         </div>
                     </div>
