@@ -1,6 +1,7 @@
 "use client";
 
 import { signIn } from '@/lib/auth-client';
+import { createDeferredSuffixStream } from 'next/dist/server/stream-utils/node-web-streams-helper';
 import Link from 'next/link';
 import React from 'react';
 import { toast } from 'react-toastify';
@@ -46,12 +47,12 @@ const SignInPage = () => {
                 <form action="" onSubmit={handleSignIn}>
                     <fieldset className="fieldset">
                         <label className="label text-sm font-medium pt-3">ইমেইল</label>
-                        <input type="email" name="email" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="you@example.com" />
+                        <input type="email" required name="email" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="you@example.com" />
 
                         <label className="label textsm] font-medium pt-3">পাসওয়ার্ড</label>
-                        <input type="password" name="password" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="কমপক্ষে ৮ অক্ষর" />
+                        <input type="password" required min={8} name="password" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="কমপক্ষে ৮ অক্ষর" />
 
-                        <div><Link href="">Forgot password?</Link></div>
+                        {/* <div><Link href="">Forgot password?</Link></div> */}
 
                         <button type="submit" className="btn bg-[#05893e] text-[14px] text-white font-semibold mt-4 py-6">অ্যাকাউন্ট তৈরি করুন</button>
                     </fieldset>

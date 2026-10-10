@@ -18,7 +18,7 @@ const HeroSection = () => {
                 <Link href="/#allproduct"><button className="btn bg-[#05893e] rounded-xl text-white font-semibold text-lg py-7 px-5">সব পণ্য দেখুন</button></Link>
             </div>
             <div className="col-span-1 justify-center">
-                <Image src={HeroImage} className="mx-auto" alt="image" width={300} height={300} />
+                <Image src={HeroImage} className="mx-auto object-contain w-100" alt="image" width={700} height={700} />
             </div>
         </div>
     );

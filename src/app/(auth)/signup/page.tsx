@@ -55,19 +55,19 @@ const SignUpPage = () => {
                 <form action="" onSubmit={handleSignUp}>
                     <fieldset className="fieldset">
                         <label className="label text-sm font-medium pt-3">নাম</label>
-                        <input type="text" name="name" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="যেমন: রহিম উদ্দিন" />
+                        <input type="text" name="name" required className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="যেমন: রহিম উদ্দিন" />
 
                         <label className="label text-sm font-medium pt-3">ইমেজ</label>
-                        <input type="url" name="image" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="আপনার ইমেজ " />
+                        <input type="url" name="image" required className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="আপনার ইমেজ " />
 
                         <label className="label text-sm font-medium pt-3">ইমেইল</label>
-                        <input type="email" name="email" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="you@example.com" />
+                        <input type="email" name="email" required className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="you@example.com" />
 
                         <label className="label textsm] font-medium pt-3">পাসওয়ার্ড</label>
-                        <input type="password" name="password" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="কমপক্ষে ৮ অক্ষর" />
+                        <input type="password" min={8} required name="password" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="কমপক্ষে ৮ অক্ষর" />
 
                         <label className="label text-sm font-medium pt-3">পাসওয়ার্ড নিশ্চিত করুন</label>
-                        <input type="password" name="confirmPassword" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="আবার লিখুন" />
+                        <input type="password" min={8} required name="confirmPassword" className="input outline-0 focus:border-[#05893e] w-full text-sm" placeholder="আবার লিখুন" />
 
                         <button type="submit" className="btn bg-[#05893e] text-[14px] text-white font-semibold mt-4 py-6">অ্যাকাউন্ট তৈরি করুন</button>
                     </fieldset>
