@@ -15,11 +15,7 @@ const productItems = ({ products }: { products: IAllProducts[] }) => {
 
 
     const handleSoryItems = (products: IAllProducts[]) => {
-        const updateProducts = products;
-
-        if (sortBy === "default") {
-            updateProducts
-        }
+        const updateProducts = [...products];
 
         if (sortBy === "price.asc") {
             updateProducts.sort((a, b) => Number(a.today) - Number(b.today));
@@ -48,7 +44,7 @@ const productItems = ({ products }: { products: IAllProducts[] }) => {
 
             <h2 className="text-[16px] pt-8 text-[#1d271fa1]">মোট {toBanglaNumber(`${products.length}`)}টি পণ্য দেখানো হচ্ছে</h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5">
                 {
                     newProducts.map((product: IAllProducts) => <ProductCard key={product.id} product={product} />)
                 }
